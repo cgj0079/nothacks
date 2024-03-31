@@ -21,7 +21,6 @@ import os
 cmd_process = subprocess.Popen(['cmd.exe'], stdin=subprocess.PIPE, encoding='utf8')
     
 # CMD 명령어들을 하나의 문자열로 결합하여 순차적으로 실행
-# 각 명령은 '&&'로 연결되어 이전 명령이 성공적으로 실행된 후 다음 명령이 실행됩니다.
 commands = "color 0a && cd.. && cd.. && tree"
 os.system(f'cmd /c "{commands}"')</pre>
 
