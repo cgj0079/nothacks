@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>코드 복사하기</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+<a>딱히 특별한 것 없이 걍 python 코드</a>
+    <pre id="codeToCopy">import subprocess
+import os
+
+cmd_process = subprocess.Popen(['cmd.exe'], stdin=subprocess.PIPE, encoding='utf8')
+    
+# CMD 명령어들을 하나의 문자열로 결합하여 순차적으로 실행
+# 각 명령은 '&&'로 연결되어 이전 명령이 성공적으로 실행된 후 다음 명령이 실행됩니다.
+commands = "color 0a && cd.. && cd.. && tree"
+os.system(f'cmd /c "{commands}"')</pre>
+
+    <script>
+        document.getElementById('codeToCopy').addEventListener('click', async function () {
+            try {
+                // 텍스트를 클립보드에 복사합니다.
+                await navigator.clipboard.writeText(this.innerText);
+                alert('코드가 클립보드에 복사되었습니다!');
+            } catch (err) {
+                // 복사 실패 시 오류 메시지를 표시합니다.
+                alert('복사 실패: ', err);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
